@@ -1,8 +1,8 @@
-node {
- checkout scm
- docker.withRegistry('https://registry.hub.docker.com','prembudda'){
+pipeline {
+stage('scm') 
+ docker.withRegistry('https://registry.hub.docker.com','dockerHub'){
   
-   def customImage = docker.build("miltomc/dockerwebapp")
+   def customImage = docker.build("prembudda/dockerwebapp")
     customImage.push()
      }
  }
